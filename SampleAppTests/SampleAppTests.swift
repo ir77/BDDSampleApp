@@ -36,30 +36,26 @@ class SampleAppTests: XCTestCase {
         XCTAssertEqual(label?.text, "0")
     }
 
-    func test_プラスボタンがタップされるごとに_ラベルの数字が1つずつ増えていく() {
+    func test_プラスボタンがタップされる_ラベルの数字が1つ増える() {
         let button = viewController.plusButton
         let label = viewController.label
 
         XCTAssertEqual(label?.text, "0")
 
-        (1...3).forEach { index in
-            button?.sendActions(for: .touchUpInside)
+        button?.sendActions(for: .touchUpInside)
 
-            XCTAssertEqual(label?.text, "\(index)")
-        }
+        XCTAssertEqual(label?.text, "1")
     }
 
-    func test_マイナスボタンがタップされるごとに_ラベルの数字が1つずつ減っていく() {
+    func test_マイナスボタンがタップされる_ラベルの数字が1つ減る() {
         let button = viewController.minusButton
         let label = viewController.label
 
         XCTAssertEqual(label?.text, "0")
 
-        (1...3).forEach { index in
-            button?.sendActions(for: .touchUpInside)
+        button?.sendActions(for: .touchUpInside)
 
-            XCTAssertEqual(label?.text, "\(index * -1)")
-        }
+        XCTAssertEqual(label?.text, "-1")
     }
 }
 
