@@ -14,6 +14,8 @@ class SampleAppTests: XCTestCase {
     var viewController: ViewController!
 
     override func setUp() {
+        super.setUp()
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
     }
@@ -59,7 +61,7 @@ class SampleAppTests: XCTestCase {
     }
 }
 
-extension ViewController {
+private extension ViewController {
     var plusButton: UIButton? {
         return view
             .subviews
